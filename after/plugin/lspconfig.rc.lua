@@ -1,6 +1,9 @@
 local status, nvim_lsp = pcall(require, "lspconfig")
 if (not status) then return end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -27,10 +30,12 @@ end
 
 nvim_lsp.tsserver.setup{
   on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 nvim_lsp.rust_analyzer.setup{
   on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     ["rust-analyzer"] = {}
   }
@@ -38,10 +43,12 @@ nvim_lsp.rust_analyzer.setup{
 
 nvim_lsp.eslint.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 nvim_lsp.sumneko_lua.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     Lua = {
       diagnostics = {

@@ -14,6 +14,10 @@ packer.startup(function(use)
 
   -- lsp
   use 'neovim/nvim-lspconfig'
+  use 'L3MON4D3/LuaSnip'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/nvim-cmp'
+  use 'saadparwaiz1/cmp_luasnip'
 
   use 'mhinz/vim-signify'
   use 'nvim-lualine/lualine.nvim'
