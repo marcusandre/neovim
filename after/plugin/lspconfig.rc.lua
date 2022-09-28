@@ -1,7 +1,7 @@
 local status, nvim_lsp = pcall(require, "lspconfig")
 if (not status) then return end
 
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
@@ -20,29 +20,28 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
+  vim.keymap.set('n', '<space>t', vim.lsp.buf.type_definition, bufopts)
 end
 
 nvim_lsp.tsserver.setup{
   on_attach = on_attach,
-  flags = lsp_flags,
 }
 
 nvim_lsp.rust_analyzer.setup{
   on_attach = on_attach,
-  flags = lsp_flags,
   settings = {
     ["rust-analyzer"] = {}
   }
 }
 
 nvim_lsp.eslint.setup {
-  on_attach = on_attach_with_formatting,
-  capabilities = capabilities,
+  on_attach = on_attach,
 }
 
 nvim_lsp.sumneko_lua.setup {
-  on_attach = on_attach_with_formatting,
-  capabilities = capabilities,
+  on_attach = on_attach,
   settings = {
     Lua = {
       diagnostics = {
