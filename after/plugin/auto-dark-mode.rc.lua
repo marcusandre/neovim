@@ -2,19 +2,26 @@ local status, auto_dark_mode = pcall(require, "auto-dark-mode")
 if (not status) then return end
 
 vim.api.nvim_set_option('background', 'dark')
-vim.cmd('colorscheme nord')
 
 auto_dark_mode.setup({
   ---@diagnostic disable-next-line: assign-type-mismatch
   auto_dark_mode = 1000,
   set_dark_mode = function()
+    require('rose-pine').setup({
+      dark_variant = 'moon',
+    })
+
     vim.api.nvim_set_option('background', 'dark')
-    vim.cmd('colorscheme nord')
   end,
   set_light_mode = function()
+    require('rose-pine').setup({
+      dark_variant = nil,
+    })
+
     vim.api.nvim_set_option('background', 'light')
-    vim.cmd('colorscheme PaperColor')
   end,
 })
+
+vim.cmd [[colorscheme rose-pine]]
 
 auto_dark_mode.init()

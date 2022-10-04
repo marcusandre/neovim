@@ -28,11 +28,6 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', '<space>t', vim.lsp.buf.type_definition, bufopts)
 end
 
-nvim_lsp.tsserver.setup{
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-
 nvim_lsp.rust_analyzer.setup{
   on_attach = on_attach,
   capabilities = capabilities,
@@ -41,10 +36,17 @@ nvim_lsp.rust_analyzer.setup{
   }
 }
 
+nvim_lsp.tsserver.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 nvim_lsp.eslint.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
+
+nvim_lsp.elmls.setup{}
 
 nvim_lsp.sumneko_lua.setup {
   on_attach = on_attach,
