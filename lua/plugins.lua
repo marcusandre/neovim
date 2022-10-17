@@ -50,6 +50,7 @@ packer.startup(function(use)
   use 'archseer/colibri.vim'
   use 'arcticicestudio/nord-vim'
   use 'f-person/auto-dark-mode.nvim'
+  use 'cocopon/iceberg.vim'
   use { 'catppuccin/nvim', as = 'catppuccin' }
-  use({ 'rose-pine/neovim', as = 'rose-pine' })
+  use { 'rose-pine/neovim', as = 'rose-pine' }
 end)
