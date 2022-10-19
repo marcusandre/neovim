@@ -21,12 +21,25 @@ treesitter.configs.setup {
 
   -- A list of parser names, or "all"
   ensure_installed = {
-    "lua",
-    "rust",
-    "json",
-    "typescript",
+    "bash",
+    "css",
+    "go",
+    "gomod",
+    "html",
     "javascript",
+    "jsdoc",
+    "json",
+    "jsonc",
+    "jsx",
+    "lua",
+    "nix",
+    "python",
+    "regex",
+    "rust",
+    "scss",
+    "toml",
     "tsx",
-    "jsx"
+    "typescript",
+    "yaml",
   }
 }
