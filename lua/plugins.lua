@@ -29,6 +29,7 @@ packer.startup(function(use)
   use 'tpope/vim-projectionist'
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
+  use 'junegunn/gv.vim'
 
   use {
     'mrjones2014/dash.nvim',
