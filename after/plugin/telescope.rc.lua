@@ -13,6 +13,11 @@ telescope.setup {
       },
     },
   },
+  extensions = {
+    file_browser = {
+      hijack_netrw = true
+    }
+  }
 }
 
 -- keymaps
@@ -22,6 +27,7 @@ vim.keymap.set('n', '<leader>f', function()
     hidden = true
   })
 end)
+vim.keymap.set('n', '<leader>F', ":Telescope file_browser<CR>")
 vim.keymap.set('n', '<leader>r', function()
   builtin.live_grep()
 end)

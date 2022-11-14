@@ -10,5 +10,9 @@ keymap.set('n', '<leader>q', ':bp|bd#<CR>')
 keymap.set('n', ']t', ':tabn<cr>')
 keymap.set('n', '[t', ':tabp<cr>')
 keymap.set('n', '<leader><leader>', ':b#<CR>')
+keymap.set('n', 'j', 'gj');
+keymap.set('n', 'k', 'gk');
+keymap.set('i', 'kj', '<ESC>');
+keymap.set('i', 'jk', '<ESC>');
 
 cmd('autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll')
