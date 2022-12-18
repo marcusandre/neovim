@@ -13,29 +13,42 @@ packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- lsp
-  use 'neovim/nvim-lspconfig'
-  use 'L3MON4D3/LuaSnip'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/nvim-cmp'
-  use 'saadparwaiz1/cmp_luasnip'
-    use({
-    "j-hui/fidget.nvim",
-    config = function()
-      require("fidget").setup()
-    end
-  })
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},
+      {'williamboman/mason.nvim'},
+      {'williamboman/mason-lspconfig.nvim'},
 
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'saadparwaiz1/cmp_luasnip'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-nvim-lua'},
+
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},
+      {'rafamadriz/friendly-snippets'},
+    }
+  }
+
+  use 'junegunn/gv.vim'
+  use 'mbbill/undotree'
   use 'mhinz/vim-signify'
+  use('nvim-treesitter/playground')
+  use('theprimeagen/harpoon')
   use 'nvim-lualine/lualine.nvim'
-  use 'nvim-telescope/telescope-file-browser.nvim'
-  use 'vim-test/vim-test'
   use 'sgur/vim-editorconfig'
   use 'tpope/vim-commentary'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-projectionist'
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
-  use 'junegunn/gv.vim'
+  use 'vim-test/vim-test'
+
 
   use {
     'mrjones2014/dash.nvim',
@@ -44,7 +57,7 @@ packer.startup(function(use)
 
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    run = ':TSUpdate',
   }
 
   use {
@@ -53,11 +66,8 @@ packer.startup(function(use)
   }
 
   -- themes
-  use 'NLKNguyen/papercolor-theme'
   use 'archseer/colibri.vim'
   use 'arcticicestudio/nord-vim'
   use 'f-person/auto-dark-mode.nvim'
   use 'cocopon/iceberg.vim'
-  use { 'catppuccin/nvim', as = 'catppuccin' }
-  use { 'rose-pine/neovim', as = 'rose-pine' }
 end)
