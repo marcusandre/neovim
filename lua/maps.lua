@@ -1,7 +1,7 @@
 local keymap = vim.keymap
 local cmd = vim.api.nvim_command
 
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 
 keymap.set('n', '<leader>1', ':split $MYVIMRC<CR>')
 keymap.set("n", "Q", "<nop>")
