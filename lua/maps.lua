@@ -1,5 +1,4 @@
 local keymap = vim.keymap
-local cmd = vim.api.nvim_command
 
 vim.g.mapleader = " "
 
@@ -21,4 +20,3 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
-cmd('autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll')
