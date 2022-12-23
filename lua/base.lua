@@ -45,5 +45,5 @@ else
 end
 
 vim.cmd [[
-  silent! colorscheme PaperColor
+  silent! colorscheme iceberg
 ]]
