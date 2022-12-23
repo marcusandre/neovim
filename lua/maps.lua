@@ -2,7 +2,6 @@ local keymap = vim.keymap
 
 vim.g.mapleader = " "
 
-keymap.set('n', '<leader>1', ':split $MYVIMRC<CR>')
 keymap.set("n", "Q", "<nop>")
 keymap.set('n', ']b', ':bnext<cr>')
 keymap.set('n', '[b', ':bprev<cr>')
@@ -20,3 +19,6 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
+vim.keymap.set("n", "<leader>t", "<cmd>Ex<CR>")
+vim.keymap.set("n", "<leader>l", "<cmd>nohl<CR>")
+vim.keymap.set("n", "<leader>v", "<cmd>vsplit<CR>")

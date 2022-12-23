@@ -6,9 +6,10 @@ lsp.nvim_workspace()
 
 lsp.ensure_installed({
   'eslint',
+  'gopls',
   'rust_analyzer',
   'sumneko_lua',
-  'tsserver'
+  'tsserver',
 })
 
 lsp.set_preferences({
@@ -33,6 +34,16 @@ lsp.configure('sumneko_lua', {
 
 lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
+
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    command = 'silent! LspZeroFormat',
+    group = vim.api.nvim_create_augroup('lsp-zero-fmt', {}),
+  })
+
+  if client.name == 'tsserver' then
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+  end
 
   if client.name == 'eslint' then
     vim.api.nvim_create_autocmd('BufWritePre', {
