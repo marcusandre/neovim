@@ -20,7 +20,8 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>t", "<cmd>Ex<CR>")
-vim.keymap.set("n", "<leader>l", "<cmd>nohl<CR>")
 vim.keymap.set("n", "<leader>v", "<cmd>vsplit<CR>")
+
+vim.keymap.set("n", "<bs>", "<cmd>nohl<CR>")
 
 vim.keymap.set("n", "KK", "<cmd>AV<CR>")
