@@ -32,6 +32,10 @@ lsp.configure('sumneko_lua', {
   }
 })
 
+require('lspconfig').tsserver.setup({
+  root_dir = require('lspconfig.util').root_pattern('.git')
+})
+
 lsp.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
