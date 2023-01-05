@@ -79,10 +79,16 @@ packer.startup(function(use)
   use 'tpope/vim-repeat'
   use 'tpope/vim-sleuth'
   use 'tpope/vim-surround'
+
+  -- testing
   use 'vim-test/vim-test'
+  use 'andythigpen/nvim-coverage'
+
+  -- todo
   -- use('theprimeagen/harpoon')
   -- use 'sgur/vim-editorconfig'
 
+  -- interop
   use {
     'mrjones2014/dash.nvim',
     run = 'make install',
